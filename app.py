@@ -12,19 +12,19 @@ def switch_chart_data(period):
         return "database/sfl_monthly_db_for_dashboard.parquet.gzip"
 
 
+st.set_page_config(layout="wide")
 st.sidebar.header("SFL game statistics test dashboard")
 img = Image.open("img/black_market.3bde9316.jpg")
 st.sidebar.image(img, width=300)
 
 
-st.subheader("Transactions amount chart")
+st.title("Transactions amount chart")
 period = ['daily', 'weekly', 'monthly']
 chart_period = st.select_slider('Choose period', period)
 db_file = switch_chart_data(chart_period)
 df = pd.read_parquet(db_file)
-df
 
 with st.container():
-    st.bar_chart(df, x="date", y="transactions", use_container_width=True)
+    st.bar_chart(df['transactions'], use_container_width=True)
 
 
