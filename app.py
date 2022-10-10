@@ -5,12 +5,11 @@ from PIL import Image
 
 def switch_chart_data(period):
     if period == "daily":
-        return "database/sfl_daily_db_for_dashboard.parquet.gzip"
+        return "database/sfl_all_trans_daily_db_for_dashboard.parquet.gzip"
     elif period == "weekly":
-        return "database/sfl_weekly_db_for_dashboard.parquet.gzip"
+        return "database/sfl_all_trans_weekly_db_for_dashboard.parquet.gzip"
     elif period == "monthly":
-        return "database/sfl_monthly_db_for_dashboard.parquet.gzip"
-
+        return "database/sfl_all_trans_monthly_db_for_dashboard.parquet.gzip"
 
 st.set_page_config(layout="wide")
 st.sidebar.header("SFL game statistics test dashboard")
